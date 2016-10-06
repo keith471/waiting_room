@@ -2,7 +2,7 @@ package main;
 
 import java.util.ArrayList;
 
-public class Result implements Comparable<Result> {
+public class Result {
 
 	// Distance from the last chair in the array to the end of the array; INF if
 	// table in between
@@ -39,23 +39,6 @@ public class Result implements Comparable<Result> {
 
 	public void setConfig(ArrayList<Character> config) {
 		this.config = config;
-	}
-
-	@Override
-	public int compareTo(Result o) {
-		if (this.getMin() > o.getMin()) {
-			return 1;
-		} else if (this.getMin() < o.getMin()) {
-			return -1;
-		} else {
-			if (this.getDist() > o.getDist()) {
-				return 1;
-			} else if (this.getDist() < o.getDist()) {
-				return -1;
-			} else {
-				return 0;
-			}
-		}
 	}
 
 }

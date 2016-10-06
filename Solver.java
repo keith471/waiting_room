@@ -7,7 +7,7 @@ public class Solver {
 	
 	// we assume the distance between the first and last position must be less
 	// than this (inf for infinity)
-	public static final int INF = 100000;
+	public static final int INF = Integer.MAX_VALUE;
 
 	// indexed by i (the indicating a solution for indices 0 through i of p),
 	// then c (the number of chairs), then t (the number of tables)
@@ -106,10 +106,9 @@ public class Solver {
 
 			// Compare the three results. Store and return the result with
 			// maximum `min` (maximize the minimum distance between chairs). If
-			// two or more results have the same min, then take the one
-			// that involved placing the chair, if it is one of the options with
-			// a maximal minimum, else take the one with higher `dist`, and if
-			// neither has a higher dist then take either
+			// two or more results have the same min, then take the one with
+			// greater `dist`. If they have the same dist, then take the one
+			// that places a chair, else take either
 			Result retVal = getBest(results, i);
 			
 			cache[i][c][t] = retVal;
@@ -142,5 +141,4 @@ public class Solver {
 			return best;
 		}
 	}
-
 }
